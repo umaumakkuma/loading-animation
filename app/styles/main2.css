@@ -36,8 +36,8 @@ img {
 }
 
 .loading.open {
-  -webkit-animation: open 0.5s cubic-bezier(1, 0, 1, 0);
-          animation: open 0.5s cubic-bezier(1, 0, 1, 0);
+  -webkit-animation: open 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5);
+          animation: open 0.5s cubic-bezier(0.5, 0.5, 0.5, 0.5);
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -72,20 +72,18 @@ img {
 
 /* ローディング */
 @-webkit-keyframes open {
-  99% {
+  0% {
     opacity: 1;
   }
   100% {
-    height: 0;
     opacity: 0;
   }
 }
 @keyframes open {
-  99% {
+  0% {
     opacity: 1;
   }
   100% {
-    height: 0;
     opacity: 0;
   }
 }
@@ -129,4 +127,4 @@ img {
     opacity: 1;
   }
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main2.css.map */
