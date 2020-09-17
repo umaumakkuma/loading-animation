@@ -6,13 +6,18 @@
     const loadingIconWrap = document.getElementById('js-loading-icon-wrap')
     const loadingCompleteText = document.getElementById('js-loading-complete-text')
 
-    loadingIconWrap.classList.add('hide')
+    // クルクルローディングアイコンを非表示にする
+    loadingIconWrap.classList.add('fadeout')
+
+    // クルクルアイコンの非表示アニメーションが終了したら
     loadingIconWrap.addEventListener('animationend', () => {
-      loadingIconWrap.classList.add('end')
+      loadingIconWrap.classList.add('d-none')
       loadingCompleteText.classList.add('show')
     })
+
+    // completeテキストアニメーションが終了したら
     loadingCompleteText.addEventListener('animationend', () => {
-      loading.classList.add('hide')
+      loading.classList.add('open')
     })
   };
 }());
