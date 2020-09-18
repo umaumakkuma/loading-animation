@@ -9,7 +9,7 @@ img {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 900px;
+  width: 90000px;
   margin: 0 auto;
 }
 
@@ -127,4 +127,3 @@ img {
     opacity: 1;
   }
 }
-/*# sourceMappingURL=main2.css.map */
