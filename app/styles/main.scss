@@ -39,11 +39,9 @@ img {
     border-radius: 30px;
     animation: loading-icon 1s linear infinite;
 
-    &-wrap {
-      &.fadeout {
-        animation: fade reverse .5s linear;
-        animation-fill-mode: forwards;
-      }
+    &.fadeout {
+      animation: fadein reverse .5s linear;
+      animation-fill-mode: forwards;
     }
   }
 
@@ -52,9 +50,9 @@ img {
     color: #fff;
     font-size: 50px;
 
-    &.show {
+    &.fadein {
       display: block;
-      animation: fade 1s linear;
+      animation: fadein 1s linear;
     }
   }
 }
@@ -66,8 +64,8 @@ img {
   }
 
   100% {
+    visibility: hidden;
     height: 0;
-    opacity: 0;
   }
 }
 
@@ -82,8 +80,8 @@ img {
   }
 }
 
-/* フェードアニメーション */
-@keyframes fade {
+/* フェードイン */
+@keyframes fadein {
   0% {
     opacity: 0;
   }

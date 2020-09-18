@@ -9,7 +9,7 @@ img {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 90000px;
+  width: 900px;
   margin: 0 auto;
 }
 
@@ -52,8 +52,8 @@ img {
           animation: loading-icon 1s linear infinite;
 }
 
-.loading__icon-wrap.fadeout {
-  animation: fade reverse .5s linear;
+.loading__icon.fadeout {
+  animation: fadein reverse .5s linear;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -64,10 +64,10 @@ img {
   font-size: 50px;
 }
 
-.loading__complete-text.show {
+.loading__complete-text.fadein {
   display: block;
-  -webkit-animation: fade 1s linear;
-          animation: fade 1s linear;
+  -webkit-animation: fadein 1s linear;
+          animation: fadein 1s linear;
 }
 
 /* ローディング */
@@ -76,6 +76,7 @@ img {
     opacity: 1;
   }
   100% {
+    visibility: hidden;
     opacity: 0;
   }
 }
@@ -84,6 +85,7 @@ img {
     opacity: 1;
   }
   100% {
+    visibility: hidden;
     opacity: 0;
   }
 }
@@ -110,8 +112,8 @@ img {
   }
 }
 
-/* フェードアニメーション */
-@-webkit-keyframes fade {
+/* フェードイン */
+@-webkit-keyframes fadein {
   0% {
     opacity: 0;
   }
@@ -119,7 +121,7 @@ img {
     opacity: 1;
   }
 }
-@keyframes fade {
+@keyframes fadein {
   0% {
     opacity: 0;
   }
