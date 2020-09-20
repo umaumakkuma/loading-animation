@@ -7,12 +7,12 @@
     const loadingCompleteText = document.getElementById('js-loading-complete-text')
 
     // クルクルローディングアイコンを非表示にする
-    loadingIcon.classList.add('fadeout')
+    loadingIcon.classList.add('fade-out')
 
     // クルクルアイコンの非表示アニメーションが終了したら
     loadingIcon.addEventListener('animationend', () => {
       loadingIcon.classList.add('d-none')
-      loadingCompleteText.classList.add('fadein')
+      loadingCompleteText.classList.add('fade-in')
     })
 
     // completeテキストアニメーションが終了したら

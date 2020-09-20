@@ -13,10 +13,6 @@ img {
   margin: 0 auto;
 }
 
-.d-none {
-  display: none;
-}
-
 .loading {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,17 +39,38 @@ img {
 }
 
 .loading__icon {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #fff;
-  border-right: 5px solid transparent;
-  border-radius: 30px;
-  -webkit-animation: loading-icon 1s linear infinite;
-          animation: loading-icon 1s linear infinite;
+  position: relative;
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
 }
 
-.loading__icon.fadeout {
-  animation: fadein reverse .5s linear;
+.loading__icon::after {
+  -webkit-animation-name: loader-circle;
+          animation-name: loader-circle;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  content: '';
+  display: block;
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  top: 50%;
+  left: 50%;
+  border-style: solid;
+  border-width: 0.5em;
+  border-color: #fff #fff #fff transparent;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.loading__icon.fade-out {
+  animation: fade-in reverse .5s linear;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -64,13 +81,13 @@ img {
   font-size: 50px;
 }
 
-.loading__complete-text.fadein {
+.loading__complete-text.fade-in {
   display: block;
-  -webkit-animation: fadein 1s linear;
-          animation: fadein 1s linear;
+  -webkit-animation: fade-in 1s linear;
+          animation: fade-in 1s linear;
 }
 
-/* ローディング */
+/* ローディングスクリーン */
 @-webkit-keyframes open {
   99% {
     opacity: 1;
@@ -91,29 +108,29 @@ img {
 }
 
 /* ローディングアイコン */
-@-webkit-keyframes loading-icon {
+@-webkit-keyframes loader-circle {
   0% {
+    -webkit-transform: translate(-50%, -50%) rotateZ(0deg);
+            transform: translate(-50%, -50%) rotateZ(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+    -webkit-transform: translate(-50%, -50%) rotateZ(360deg);
+            transform: translate(-50%, -50%) rotateZ(360deg);
   }
 }
-@keyframes loading-icon {
+@keyframes loader-circle {
   0% {
+    -webkit-transform: translate(-50%, -50%) rotateZ(0deg);
+            transform: translate(-50%, -50%) rotateZ(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-    -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+    -webkit-transform: translate(-50%, -50%) rotateZ(360deg);
+            transform: translate(-50%, -50%) rotateZ(360deg);
   }
 }
 
 /* フェードイン */
-@-webkit-keyframes fadein {
+@-webkit-keyframes fade-in {
   0% {
     opacity: 0;
   }
@@ -121,11 +138,16 @@ img {
     opacity: 1;
   }
 }
-@keyframes fadein {
+@keyframes fade-in {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
+}
+
+/* utility */
+.d-none {
+  display: none;
 }

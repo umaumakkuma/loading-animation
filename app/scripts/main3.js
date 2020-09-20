@@ -20,7 +20,12 @@
     loadingCompleteText.addEventListener('animationend', () => {
       loadingTop.classList.add('open')
       loadingBottom.classList.add('open')
+    })
+
+    // コンテンツオープンアニメーションが終了したら
+    loadingTop.addEventListener('animationend', () => {
       loading.classList.add('d-none')
     })
+
   };
 }());
