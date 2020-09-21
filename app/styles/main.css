@@ -39,13 +39,13 @@ img {
 }
 
 .loading__icon {
-  position: relative;
   width: 5em;
   height: 5em;
   border-radius: 50%;
-}
-
-.loading__icon::after {
+  border-width: 0.5em;
+  border-style: solid;
+  border-color: #fff #fff #fff transparent;
+  border-radius: 50%;
   -webkit-animation-name: loader-circle;
           animation-name: loader-circle;
   -webkit-animation-duration: 1s;
@@ -54,19 +54,6 @@ img {
           animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-  content: '';
-  display: block;
-  position: absolute;
-  width: inherit;
-  height: inherit;
-  top: 50%;
-  left: 50%;
-  border-style: solid;
-  border-width: 0.5em;
-  border-color: #fff #fff #fff transparent;
-  border-radius: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 .loading__icon.fade-out {
@@ -87,45 +74,25 @@ img {
           animation: fade-in 1s linear;
 }
 
-/* ローディングスクリーン */
-@-webkit-keyframes open {
-  99% {
-    opacity: 1;
-  }
-  100% {
-    visibility: hidden;
-    height: 0;
-  }
-}
-@keyframes open {
-  99% {
-    opacity: 1;
-  }
-  100% {
-    visibility: hidden;
-    height: 0;
-  }
-}
-
 /* ローディングアイコン */
 @-webkit-keyframes loader-circle {
   0% {
-    -webkit-transform: translate(-50%, -50%) rotateZ(0deg);
-            transform: translate(-50%, -50%) rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
   }
   100% {
-    -webkit-transform: translate(-50%, -50%) rotateZ(360deg);
-            transform: translate(-50%, -50%) rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
   }
 }
 @keyframes loader-circle {
   0% {
-    -webkit-transform: translate(-50%, -50%) rotateZ(0deg);
-            transform: translate(-50%, -50%) rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg);
   }
   100% {
-    -webkit-transform: translate(-50%, -50%) rotateZ(360deg);
-            transform: translate(-50%, -50%) rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
   }
 }
 
@@ -144,6 +111,26 @@ img {
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* ローディングスクリーン */
+@-webkit-keyframes open {
+  99% {
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    height: 0;
+  }
+}
+@keyframes open {
+  99% {
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    height: 0;
   }
 }
 
