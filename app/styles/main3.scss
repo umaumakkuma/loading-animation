@@ -29,7 +29,9 @@ img {
     background-color: #52cfe6;
 
     &.open {
-      animation: open .5s cubic-bezier(1,0,1,0);
+      animation-name: open;
+      animation-duration: .5s;
+      animation-timing-function: cubic-bezier(1,0,1,0);
       animation-fill-mode: forwards;
     }
   }
@@ -44,7 +46,9 @@ img {
     background-color: #52cfe6;
 
     &.open {
-      animation: open .5s cubic-bezier(1,0,1,0);
+      animation-name: open;
+      animation-duration: .5s;
+      animation-timing-function: cubic-bezier(1,0,1,0);
       animation-fill-mode: forwards;
     }
   }
@@ -65,7 +69,10 @@ img {
     animation-iteration-count: infinite;
 
     &.fade-out {
-      animation: fade-in reverse .5s linear;
+      animation-name: fade-out;
+      animation-duration: .5s;
+      animation-timing-function: linear;
+      animation-iteration-count: initial;
       animation-fill-mode: forwards;
     }
   }
@@ -81,20 +88,10 @@ img {
     font-size: 50px;
 
     &.fade-in-out {
-      animation: fade-in-out 1s linear;
+      animation-name: fade-in-out;
+      animation-duration: 1s;
+      animation-timing-function: linear;
     }
-  }
-}
-
-/* ローディングスクリーン */
-@keyframes open {
-  99% {
-    opacity: 1;
-  }
-
-  100% {
-    visibility: hidden;
-    height: 0;
   }
 }
 
@@ -109,14 +106,14 @@ img {
   }
 }
 
-/* フェードイン */
-@keyframes fade-in {
+/* フェードアウト */
+@keyframes fade-out {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
 
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
@@ -132,6 +129,17 @@ img {
 
   100% {
     opacity: 0;
+  }
+}
+
+/* ローディングスクリーン */
+@keyframes open {
+  0% {
+    height: 50%;
+  }
+
+  100% {
+    height: 0;
   }
 }
 

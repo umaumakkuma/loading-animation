@@ -1,14 +1,14 @@
 @charset "utf-8";
 
-img {
-  vertical-align: bottom;
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
   width: 900px;
   margin: 0 auto;
+
+  img {
+    vertical-align: bottom;
+  }
 }
 
 .loading {
@@ -23,7 +23,9 @@ img {
   background-color: #52cfe6;
 
   &.open {
-    animation: open .5s cubic-bezier(1,0,1,0);
+    animation-name: open;
+    animation-duration: .5s;
+    animation-timing-function: cubic-bezier(1,.01,.99,.03);
     animation-fill-mode: forwards;
   }
 
@@ -41,8 +43,11 @@ img {
     animation-iteration-count: infinite;
 
     &.fade-out {
-      animation: fade-in reverse .5s linear;
+      animation-name: fade-out;
+      animation-duration: .5s;
       animation-fill-mode: forwards;
+      animation-timing-function: linear;
+      animation-iteration-count: initial;
     }
   }
 
@@ -53,7 +58,9 @@ img {
 
     &.fade-in {
       display: block;
-      animation: fade-in 1s linear;
+      animation-name: fade-in;
+      animation-duration: 1s;
+      animation-timing-function: linear;
     }
   }
 }
@@ -66,6 +73,17 @@ img {
 
   100% {
     transform: rotateZ(360deg);
+  }
+}
+
+/* フェードアウト*/
+@keyframes fade-out {
+  0%   {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
@@ -94,5 +112,5 @@ img {
 
 /* utility */
 .d-none {
-  display: none;
+  display: none !important;
 }

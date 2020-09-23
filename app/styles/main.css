@@ -1,8 +1,4 @@
 @charset "UTF-8";
-img {
-  vertical-align: bottom;
-}
-
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,6 +7,10 @@ img {
       flex-wrap: wrap;
   width: 900px;
   margin: 0 auto;
+}
+
+.container img {
+  vertical-align: bottom;
 }
 
 .loading {
@@ -32,8 +32,12 @@ img {
 }
 
 .loading.open {
-  -webkit-animation: open 0.5s cubic-bezier(1, 0, 1, 0);
-          animation: open 0.5s cubic-bezier(1, 0, 1, 0);
+  -webkit-animation-name: open;
+          animation-name: open;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+  -webkit-animation-timing-function: cubic-bezier(1, 0.01, 0.99, 0.03);
+          animation-timing-function: cubic-bezier(1, 0.01, 0.99, 0.03);
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -57,9 +61,16 @@ img {
 }
 
 .loading__icon.fade-out {
-  animation: fade-in reverse .5s linear;
+  -webkit-animation-name: fade-out;
+          animation-name: fade-out;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: initial;
+          animation-iteration-count: initial;
 }
 
 .loading__complete-text {
@@ -70,8 +81,12 @@ img {
 
 .loading__complete-text.fade-in {
   display: block;
-  -webkit-animation: fade-in 1s linear;
-          animation: fade-in 1s linear;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 /* ローディングアイコン */
@@ -96,6 +111,24 @@ img {
   }
 }
 
+/* フェードアウト*/
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* フェードイン */
 @-webkit-keyframes fade-in {
   0% {
@@ -116,8 +149,8 @@ img {
 
 /* ローディングスクリーン */
 @-webkit-keyframes open {
-  99% {
-    opacity: 1;
+  0% {
+    height: 100%;
   }
   100% {
     visibility: hidden;
@@ -125,8 +158,8 @@ img {
   }
 }
 @keyframes open {
-  99% {
-    opacity: 1;
+  0% {
+    height: 100%;
   }
   100% {
     visibility: hidden;
@@ -136,5 +169,5 @@ img {
 
 /* utility */
 .d-none {
-  display: none;
+  display: none !important;
 }
