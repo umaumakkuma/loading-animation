@@ -45,7 +45,6 @@
 .loading__icon {
   width: 5em;
   height: 5em;
-  border-radius: 50%;
   border-width: 0.5em;
   border-style: solid;
   border-color: #fff #fff #fff transparent;
